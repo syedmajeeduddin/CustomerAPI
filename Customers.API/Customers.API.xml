@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Customers.API</name>
+    </assembly>
+    <members>
+        <member name="T:Customers.API.Controllers.CustomerController">
+            <summary>
+            Customer Web Api
+            </summary>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.#ctor(Customers.API.Repositories.CustomerRepository,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            C-tor
+            </summary>
+            <param name="repository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.GetCustomers">
+            <summary>
+            Gets all the Customers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.GetCustomersById(System.Int32)">
+            <summary>
+            Gets customer by id 
+            </summary>
+            <param name="id">id </param>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.Post(Customers.API.DTOs.CustomerDto)">
+            <summary>
+            Add Customer 
+            </summary>
+            <param name="dto">Customer DTO</param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.UpdateCustomer(System.Int32,Customers.API.DTOs.CustomerDto)">
+            <summary>
+            Updates Customer 
+            </summary>
+            <param name="id">Customer Id</param>
+            <param name="dto">Customer DTO</param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.DeleteCustomer(System.Int32)">
+            <summary>
+            Deletes Customer by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.SearchCustomers(System.String)">
+            <summary>
+            Search Customer based on First Name and Last Name 
+            </summary>
+            <param name="filterBy">search by</param>
+            <returns>list of Customers</returns>
+        </member>
+        <member name="T:Customers.API.DTOs.CustomerDto">
+            <summary>
+            DTO to read that from the API Call
+            </summary>
+        </member>
+        <member name="P:Customers.API.DTOs.CustomerDto.FirstName">
+            <summary>
+            First Name 
+            </summary>
+        </member>
+        <member name="P:Customers.API.DTOs.CustomerDto.LastName">
+            <summary>
+            Last Name 
+            </summary>
+        </member>
+        <member name="P:Customers.API.DTOs.CustomerDto.DateOfBirth">
+            <summary>
+            Date Of Birth
+            </summary>
+        </member>
+        <member name="T:Customers.API.Repositories.CustomerRepository">
+            <summary>
+             Repository to fetch data 
+            </summary>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.#ctor(Customers.API.DbContexts.CustomerDBContext)">
+            <summary>
+            C-Tor
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.GetCustomers">
+            <summary>
+            Get all Customers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.FindById(System.Int32)">
+            <summary>
+            Get Customer by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.AddCustomer(Customers.API.DTOs.CustomerDto)">
+            <summary>
+            Add new Customer
+            </summary>
+            <param name="dto">dto</param>
+            <returns>Customer Id </returns>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.UpdateCustomer(System.Int32,Customers.API.DTOs.CustomerDto)">
+            <summary>
+            Updates Customer
+            </summary>
+            <param name="id">Id</param>
+            <param name="dto">Customer Dto</param>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.DeleteCustomer(System.Int32)">
+            <summary>
+            Customer to be deleted
+            </summary>
+            <param name="id">Customer Id</param>
+        </member>
+        <member name="M:Customers.API.Repositories.CustomerRepository.FindCustomerByName(System.String)">
+            <summary>
+            Search Customer by First Or Last Name 
+            </summary>
+            <param name="filterBy">search parameter</param>
+            <returns>list of customers</returns>
+        </member>
+    </members>
+</doc>

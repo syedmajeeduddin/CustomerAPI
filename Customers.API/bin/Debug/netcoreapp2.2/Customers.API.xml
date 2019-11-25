@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Customers.API</name>
+    </assembly>
+    <members>
+        <member name="T:Customers.API.Controllers.CustomerController">
+            <summary>
+            Customer Web Api
+            </summary>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.#ctor(Customers.DalEf.Repositories.CustomerRepository,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            C-tor
+            </summary>
+            <param name="repository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.GetCustomers">
+            <summary>
+            Gets all the Customers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.GetCustomersById(System.Int32)">
+            <summary>
+            Gets customer by id 
+            </summary>
+            <param name="id">id </param>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.Post(Customers.DTOs.CustomerDto)">
+            <summary>
+            Add Customer 
+            </summary>
+            <param name="dto">Customer DTO</param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.UpdateCustomer(System.Int32,Customers.DTOs.CustomerDto)">
+            <summary>
+            Updates Customer 
+            </summary>
+            <param name="id">Customer Id</param>
+            <param name="dto">Customer DTO</param>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.DeleteCustomer(System.Int32)">
+            <summary>
+            Deletes Customer by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Customers.API.Controllers.CustomerController.SearchCustomers(System.String)">
+            <summary>
+            Search Customer based on First Name and Last Name 
+            </summary>
+            <param name="filterBy">search by</param>
+            <returns>list of Customers</returns>
+        </member>
+    </members>
+</doc>
