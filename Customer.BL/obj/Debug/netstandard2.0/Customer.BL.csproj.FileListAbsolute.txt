@@ -1,8 +1,0 @@
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\bin\Debug\netstandard2.0\Customer.BL.deps.json
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\bin\Debug\netstandard2.0\Customer.BL.dll
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\obj\Debug\netstandard2.0\Customer.BL.csprojAssemblyReference.cache
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\obj\Debug\netstandard2.0\Customer.BL.AssemblyInfoInputs.cache
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\obj\Debug\netstandard2.0\Customer.BL.AssemblyInfo.cs
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\bin\Debug\netstandard2.0\Customer.BL.pdb
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\obj\Debug\netstandard2.0\Customer.BL.dll
-C:\Users\SMajeeduddin\source\repos\CustomerAPI\Customer.BL\obj\Debug\netstandard2.0\Customer.BL.pdb
