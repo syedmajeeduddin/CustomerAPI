@@ -67,21 +67,7 @@ namespace Customers.API
                 options.OperationFilter<RemoveVersionParameter>(Array.Empty<object>());
 
                 options.DocumentFilter<ReplaceVersionWithExactValueInPath>(Array.Empty<object>());
-                //options.DocInclusionPredicate(delegate (string version, ApiDescription desc)
-                //{
-                //    IEnumerable<ApiVersion> source = desc.ControllerAttributes().OfType<ApiVersionAttribute>().SelectMany((ApiVersionAttribute attr) => attr.Versions);
-                //    ApiVersion[] array = desc.ActionAttributes().OfType<MapToApiVersionAttribute>().SelectMany((MapToApiVersionAttribute attr) => attr.Versions)
-                //        .ToArray();
-                //    if (source.Any((ApiVersion v) => "v" + v.ToString() == version))
-                //    {
-                //        if (array.Length != 0)
-                //        {
-                //            return array.Any((ApiVersion v) => "v" + v.ToString() == version);
-                //        }
-                //        return true;
-                //    }
-                //    return false;
-                //});
+                
             });
             
 
