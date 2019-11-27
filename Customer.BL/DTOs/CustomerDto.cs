@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,17 +14,20 @@ namespace Customers.DTOs
         /// <summary>
         /// First Name 
         /// </summary>
+        [Required]
         public string FirstName { get; set; }
 
 
         /// <summary>
         /// Last Name 
         /// </summary>
+        [Required]
         public string LastName { get; set; }
 
         /// <summary>
         /// Date Of Birth
-        /// </summary>
+        /// </summary
+        [Required]
         public string DateOfBirth { get; set; }
     }
 }

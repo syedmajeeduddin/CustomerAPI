@@ -79,7 +79,7 @@ namespace Customers.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }            
 
             // Enable Swagger as a JSON endpoint.
             app.UseSwagger();

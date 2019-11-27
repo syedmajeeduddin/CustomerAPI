@@ -15,7 +15,7 @@ namespace Customers.API.Controllers
     [ApiController]
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/[Controller]")]
-    
+
     public class CustomerController : ControllerBase
     {
 
@@ -31,7 +31,7 @@ namespace Customers.API.Controllers
         /// <param name="logger"></param>
         public CustomerController(CustomerRepository repository, ILogger logger)
         {
-            
+
             _repo = repository;
             _logger = logger;
         }
@@ -47,9 +47,9 @@ namespace Customers.API.Controllers
         public async Task<IActionResult> GetCustomers()
         {
             try
-            { 
+            {
                 _logger.LogInformation($"Returned all Customers from database.");
-                return  Ok(await _repo.GetCustomers());
+                return Ok(await _repo.GetCustomers());
 
             }
             catch (Exception ex)
@@ -79,21 +79,21 @@ namespace Customers.API.Controllers
             else
             {
                 _logger.LogInformation($"Returned customer with id: {id}");
-                
+
                 return Ok(customer.Result);
             }
 
-           
+
         }
 
         /// <summary>
         /// Add Customer 
         /// </summary>
         /// <param name="dto">Customer DTO</param>
-        [ProducesResponseType(typeof(Customer), 201)]        
+        [ProducesResponseType(typeof(Customer), 201)]
         [ProducesResponseType(typeof(Exception), 500)]
-        [HttpPost("Create")]       
-        public async Task<IActionResult> Post( CustomerDto dto)
+        [HttpPost("Create")]
+        public async Task<IActionResult> Post(CustomerDto dto)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Customers.API.Controllers
         {
 
             try
-            { 
+            {
                 if (dto == null)
                 {
                     _logger.LogError("Customer object sent from client is null.");
@@ -147,13 +147,13 @@ namespace Customers.API.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var customer =  _repo.FindById(id);
+                var customer = _repo.FindById(id);
                 if (customer == null)
                 {
                     _logger.LogError($"Customer with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
-                 await _repo.UpdateCustomer(id, dto);
+                await _repo.UpdateCustomer(id, dto);
 
                 return NoContent();
 
@@ -180,7 +180,7 @@ namespace Customers.API.Controllers
         {
             try
             {
-               var customer = _repo.FindById(id);
+                var customer = _repo.FindById(id);
                 if (customer == null)
                 {
                     _logger.LogError($"Customer with id: {id}, hasn't been found in db.");
@@ -208,7 +208,7 @@ namespace Customers.API.Controllers
         [ProducesResponseType(typeof(List<Customer>), 200)]
         [ProducesResponseType(typeof(Exception), 500)]
         [HttpGet("Search/{filterBy}")]
-        public async  Task<IActionResult> SearchCustomers(string filterBy)
+        public async Task<IActionResult> SearchCustomers(string filterBy)
         {
             //return await _repo.FindCustomerByName(filterBy).ToAsyncEnumerable();
             try
