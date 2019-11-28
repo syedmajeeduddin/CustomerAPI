@@ -28,6 +28,6 @@ namespace Customers.DTOs
         /// Date Of Birth
         /// </summary
         [Required]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 }

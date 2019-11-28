@@ -46,6 +46,14 @@ namespace Customers.DalEf.Repositories
             return await  _dbContext.Customers.Where(e => e.Id == id).FirstOrDefaultAsync(); ;
         }
 
+        public  bool DoesCustomerAlreadyExists (CustomerDto dto)
+        {
+            return  _dbContext.Customers.Any(cust => cust.FirstName.ToLower() == dto.FirstName.ToLower()
+                                                    && cust.LastName.ToLower() == dto.LastName.ToLower());
+
+
+        }
+
         /// <summary>
         /// Add new Customer
         /// </summary>

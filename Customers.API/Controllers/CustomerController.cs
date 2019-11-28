@@ -67,14 +67,14 @@ namespace Customers.API.Controllers
         [ProducesResponseType(typeof(Customer), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(typeof(Exception), 500)]
-        [HttpGet("{id:int}", Name = "GetCustomerById")]
+        [HttpGet("{id}", Name = "GetCustomerById")]
         public ActionResult<Customer> GetCustomersById(int id)
         {
             var customer = _repo.FindById(id);
-            if (customer == null)
+            if (customer.Result  == null)
             {
                 _logger.LogError($"Customer with id: {id}, hasn't been found in db.");
-                return NotFound();
+                return NotFound($"Customer with id: {id} not found");
             }
             else
             {
@@ -92,12 +92,13 @@ namespace Customers.API.Controllers
         /// <param name="dto">Customer DTO</param>
         [ProducesResponseType(typeof(Customer), 201)]
         [ProducesResponseType(typeof(Exception), 500)]
+        [ProducesResponseType(200)]
         [HttpPost("Create")]
         public async Task<IActionResult> Post(CustomerDto dto)
         {
             try
             {
-                //TODO: Check if the customer already exists
+                
                 if (dto == null)
                 {
                     _logger.LogError("Customer object sent from client is null.");
@@ -108,15 +109,23 @@ namespace Customers.API.Controllers
                     _logger.LogError("Invalid Customer object sent from client.");
                     return BadRequest("Invalid model object");
                 }
-                var result = await _repo.AddCustomer(dto);
 
-                return CreatedAtRoute("GetCustomerById", new { id = result.Id }, dto);
+                bool customerExists = _repo.DoesCustomerAlreadyExists(dto);
+
+                if (!customerExists)
+                {
+                    var result = await _repo.AddCustomer(dto);
+
+                    return CreatedAtRoute("GetCustomerById", new { id = result.Id }, dto);
+                }
+                else
+                    return StatusCode(200, $"customer already exists with the given First Name : {dto.FirstName} and Last Name : {dto.LastName}");
 
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Add Customer action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, "Internal server error :" +  ex.Message);
             }
 
         }
@@ -148,14 +157,14 @@ namespace Customers.API.Controllers
                 }
 
                 var customer = _repo.FindById(id);
-                if (customer == null)
+                if (customer.Result  == null)
                 {
                     _logger.LogError($"Customer with id: {id}, hasn't been found in db.");
-                    return NotFound();
+                    return NotFound($"Customer with Id {id} not found.");
                 }
                 await _repo.UpdateCustomer(id, dto);
 
-                return NoContent();
+                return StatusCode(200, "Customer updated successfully.");
 
             }
             catch (Exception ex)
@@ -181,14 +190,14 @@ namespace Customers.API.Controllers
             try
             {
                 var customer = _repo.FindById(id);
-                if (customer == null)
+                if (customer.Result  == null)
                 {
                     _logger.LogError($"Customer with id: {id}, hasn't been found in db.");
-                    return NotFound();
+                    return NotFound($"Customer with Id {id} not found.");
                 }
                 await _repo.DeleteCustomer(id);
 
-                return NoContent();
+                return StatusCode(200, "Customer Deleted successfully.");
 
             }
             catch (Exception ex)

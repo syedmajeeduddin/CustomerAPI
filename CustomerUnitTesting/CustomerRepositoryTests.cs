@@ -125,7 +125,7 @@ namespace CustomerUnitTesting
                 context.SaveChanges();
 
                 var customerRepository = new CustomerRepository(context);
-                var dto = new CustomerDto() { FirstName = "Mathew", LastName = "Hayden", DateOfBirth = "1982/12/10" };
+                var dto = new CustomerDto() { FirstName = "Mathew", LastName = "Hayden", DateOfBirth = Convert.ToDateTime("1982/12/10") };
 
                 // Act
                 var customer = customerRepository.AddCustomer(dto);
@@ -159,7 +159,7 @@ namespace CustomerUnitTesting
                 context.SaveChanges();
 
                 var customerRepository = new CustomerRepository(context);
-                var dto = new CustomerDto() { FirstName = "Ricky", LastName = "Pointing", DateOfBirth = "1982/12/10" };
+                var dto = new CustomerDto() { FirstName = "Ricky", LastName = "Pointing", DateOfBirth = Convert.ToDateTime("1982/12/10") };
 
                 // Act
                  await customerRepository.UpdateCustomer(1,dto);
